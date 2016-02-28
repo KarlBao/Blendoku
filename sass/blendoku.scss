@@ -1,0 +1,75 @@
+@import 'compass/reset';
+@import 'compass/css3';
+
+*{
+	box-sizing: border-box;
+}
+body {
+	background-color: #000;
+}
+#wrapper {
+	max-width: 1200px;
+	width: 100%;
+	margin-top: 100px;
+	margin-left: auto;
+	margin-right: auto;
+}
+.blocks {
+	overflow: hidden;
+}
+.block-container {
+	position: relative;
+	width: 120px;
+	height: 120px;
+	padding: 10px;
+	float: left;
+	@include border-radius(5px);
+	&.focus {
+		background-color: #fff;
+	}
+}
+.block {
+	width: 100px;
+	height: 100px;
+	@include border-radius(5px);
+	cursor: pointer;
+	z-index: 1;
+}
+.waiting-queue {
+	.block-container {
+		&:before {
+			content: '';
+			box-sizing: border-box;
+			width: 20px;
+			height: 20px;
+			position: absolute;
+			top: 50px;
+			left: 50px;
+			@include border-radius(5px);
+			z-index: -1;
+			background-color: #aaa;
+		}
+	}
+}
+.result-queue {
+	.block-container {
+		&:before {
+			content: '';
+			box-sizing: border-box;
+			width: 100px;
+			height: 100px;
+			position: absolute;
+			top: 10px;
+			left: 10px;
+			z-index: -1;
+			@include border-radius(5px);
+			border: 5px solid #aaa;
+			cursor: pointer;
+		}
+		&.empty {
+			&:before {
+				z-index: 0;
+			}
+		}
+	}
+}
