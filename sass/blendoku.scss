@@ -16,10 +16,109 @@ body {
 }
 .blocks {
 	overflow: hidden;
+
+	/* Different block sizes */
+
+	// normal size with 120px, used as default value
+	&.normal {
+		.block-container {
+			width: 120px;
+			height: 120px;
+			padding: 10px;
+		}
+		.block {
+			width: 100px;
+			height: 100px;
+		}
+		.waiting-queue {
+			.block-container {
+				&:before {
+					width: 20px;
+					height: 20px;
+					top: 50px;
+					left: 50px;
+				}
+			}
+		}
+		.result-queue {
+			.block-container {
+				&:before {
+					width: 100px;
+					height: 100px;
+					top: 10px;
+					left: 10px;
+				}
+			}
+		}
+	}
+	// large size with 200px
+	&.large {
+		.block-container {
+			width: 200px;
+			height: 200px;
+			padding: 15px;
+		}
+		.block {
+			width: 170px;
+			height: 170px;
+		}
+		.waiting-queue {
+			.block-container {
+				&:before {
+					width: 30px;
+					height: 30px;
+					top: 85px;
+					left: 85px;
+				}
+			}
+		}
+		.result-queue {
+			.block-container {
+				&:before {
+					width: 170px;
+					height: 170px;
+					top: 15px;
+					left: 15px;
+				}
+			}
+		}
+	}
+	// small size with 80px
+	&.small {
+		.block-container {
+			width: 80px;
+			height: 80px;
+			padding: 10px;
+		}
+		.block {
+			width: 60px;
+			height: 60px;
+		}
+		.waiting-queue {
+			.block-container {
+				&:before {
+					width: 16px;
+					height: 16px;
+					top: 32px;
+					left: 32px;
+				}
+			}
+		}
+		.result-queue {
+			.block-container {
+				&:before {
+					width: 60px;
+					height: 60px;
+					top: 10px;
+					left: 10px;
+				}
+			}
+		}
+	}
 }
 .block-container {
 	position: relative;
-	width: 120px;
+	width: 120px;	
 	height: 120px;
 	padding: 10px;
 	float: left;

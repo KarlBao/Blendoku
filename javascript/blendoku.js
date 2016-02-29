@@ -6,10 +6,12 @@ var Block = function() {
 
 var level = function(options) {
 	options = options || {};
+
+	// Default settings 
 	var defaults = {
-		number: 5,
-		first: undefined,
-		last: undefined
+		number: 5,			// Number of blocks to display
+		first: undefined,	// RGB of the first block, randomly generated if undefined
+		last: undefined		// RGB of the first block, randomly generated if undefined
 	}
 	var settings = $.extend({},defaults,options),
 		blocksArr = [],
@@ -143,7 +145,7 @@ var level = function(options) {
 		},
 
 		complete: function() {
-			
+			alert('COMPLETED!!');
 		}
 	}
 
