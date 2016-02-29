@@ -13,11 +13,6 @@ body {
 	margin-top: 100px;
 	margin-left: auto;
 	margin-right: auto;
-}
-.blocks {
-	overflow: hidden;
-
-	/* Different block sizes */
 
 	// normal size with 120px, used as default value
 	&.normal {
@@ -116,6 +111,14 @@ body {
 		}
 	}
 }
+.blocks {
+	overflow: hidden;
+	margin-left: auto;
+	margin-right: auto;
+	@include inline-block;
+}
+
+/* Default size */
 .block-container {
 	position: relative;
 	width: 120px;	
@@ -135,6 +138,7 @@ body {
 	z-index: 1;
 }
 .waiting-queue {
+	text-align: center;
 	.block-container {
 		&:before {
 			content: '';
@@ -151,6 +155,7 @@ body {
 	}
 }
 .result-queue {
+	text-align: center;
 	.block-container {
 		&:before {
 			content: '';
