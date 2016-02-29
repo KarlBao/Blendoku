@@ -1,4 +1,4 @@
-/* line 5, ../../../../../../../usr/local/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+/* line 5, C:/Ruby22/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -20,45 +20,45 @@ time, mark, audio, video {
   vertical-align: baseline;
 }
 
-/* line 22, ../../../../../../../usr/local/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+/* line 22, C:/Ruby22/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
 html {
   line-height: 1;
 }
 
-/* line 24, ../../../../../../../usr/local/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+/* line 24, C:/Ruby22/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
 ol, ul {
   list-style: none;
 }
 
-/* line 26, ../../../../../../../usr/local/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+/* line 26, C:/Ruby22/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
 table {
   border-collapse: collapse;
   border-spacing: 0;
 }
 
-/* line 28, ../../../../../../../usr/local/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+/* line 28, C:/Ruby22/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
 caption, th, td {
   text-align: left;
   font-weight: normal;
   vertical-align: middle;
 }
 
-/* line 30, ../../../../../../../usr/local/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+/* line 30, C:/Ruby22/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
 q, blockquote {
   quotes: none;
 }
-/* line 103, ../../../../../../../usr/local/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+/* line 103, C:/Ruby22/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
 q:before, q:after, blockquote:before, blockquote:after {
   content: "";
   content: none;
 }
 
-/* line 32, ../../../../../../../usr/local/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+/* line 32, C:/Ruby22/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
 a img {
   border: none;
 }
 
-/* line 116, ../../../../../../../usr/local/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+/* line 116, C:/Ruby22/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
 article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
   display: block;
 }
@@ -81,13 +81,96 @@ body {
   margin-left: auto;
   margin-right: auto;
 }
-
-/* line 17, ../sass/blendoku.scss */
-.blocks {
-  overflow: hidden;
+/* line 19, ../sass/blendoku.scss */
+#wrapper.normal .block-container {
+  width: 120px;
+  height: 120px;
+  padding: 10px;
+}
+/* line 24, ../sass/blendoku.scss */
+#wrapper.normal .block {
+  width: 100px;
+  height: 100px;
+}
+/* line 30, ../sass/blendoku.scss */
+#wrapper.normal .waiting-queue .block-container:before {
+  width: 20px;
+  height: 20px;
+  top: 50px;
+  left: 50px;
+}
+/* line 40, ../sass/blendoku.scss */
+#wrapper.normal .result-queue .block-container:before {
+  width: 100px;
+  height: 100px;
+  top: 10px;
+  left: 10px;
+}
+/* line 51, ../sass/blendoku.scss */
+#wrapper.large .block-container {
+  width: 200px;
+  height: 200px;
+  padding: 15px;
+}
+/* line 56, ../sass/blendoku.scss */
+#wrapper.large .block {
+  width: 170px;
+  height: 170px;
+}
+/* line 62, ../sass/blendoku.scss */
+#wrapper.large .waiting-queue .block-container:before {
+  width: 30px;
+  height: 30px;
+  top: 85px;
+  left: 85px;
+}
+/* line 72, ../sass/blendoku.scss */
+#wrapper.large .result-queue .block-container:before {
+  width: 170px;
+  height: 170px;
+  top: 15px;
+  left: 15px;
+}
+/* line 83, ../sass/blendoku.scss */
+#wrapper.small .block-container {
+  width: 80px;
+  height: 80px;
+  padding: 10px;
+}
+/* line 88, ../sass/blendoku.scss */
+#wrapper.small .block {
+  width: 60px;
+  height: 60px;
+}
+/* line 94, ../sass/blendoku.scss */
+#wrapper.small .waiting-queue .block-container:before {
+  width: 16px;
+  height: 16px;
+  top: 32px;
+  left: 32px;
+}
+/* line 104, ../sass/blendoku.scss */
+#wrapper.small .result-queue .block-container:before {
+  width: 60px;
+  height: 60px;
+  top: 10px;
+  left: 10px;
 }
 
-/* line 20, ../sass/blendoku.scss */
+/* line 114, ../sass/blendoku.scss */
+.blocks {
+  overflow: hidden;
+  margin-left: auto;
+  margin-right: auto;
+  display: inline-block;
+  vertical-align: middle;
+  *vertical-align: auto;
+  *zoom: 1;
+  *display: inline;
+}
+
+/* Default size */
+/* line 122, ../sass/blendoku.scss */
 .block-container {
   position: relative;
   width: 120px;
@@ -98,12 +181,12 @@ body {
   -webkit-border-radius: 5px;
   border-radius: 5px;
 }
-/* line 27, ../sass/blendoku.scss */
+/* line 129, ../sass/blendoku.scss */
 .block-container.focus {
   background-color: #fff;
 }
 
-/* line 31, ../sass/blendoku.scss */
+/* line 133, ../sass/blendoku.scss */
 .block {
   width: 100px;
   height: 100px;
@@ -114,7 +197,11 @@ body {
   z-index: 1;
 }
 
-/* line 40, ../sass/blendoku.scss */
+/* line 140, ../sass/blendoku.scss */
+.waiting-queue {
+  text-align: center;
+}
+/* line 143, ../sass/blendoku.scss */
 .waiting-queue .block-container:before {
   content: '';
   box-sizing: border-box;
@@ -130,7 +217,11 @@ body {
   background-color: #aaa;
 }
 
-/* line 56, ../sass/blendoku.scss */
+/* line 157, ../sass/blendoku.scss */
+.result-queue {
+  text-align: center;
+}
+/* line 160, ../sass/blendoku.scss */
 .result-queue .block-container:before {
   content: '';
   box-sizing: border-box;
@@ -146,7 +237,7 @@ body {
   border: 5px solid #aaa;
   cursor: pointer;
 }
-/* line 70, ../sass/blendoku.scss */
+/* line 174, ../sass/blendoku.scss */
 .result-queue .block-container.empty:before {
   z-index: 0;
 }

@@ -11,7 +11,8 @@ var level = function(options) {
 	var defaults = {
 		number: 5,			// Number of blocks to display
 		first: undefined,	// RGB of the first block, randomly generated if undefined
-		last: undefined		// RGB of the first block, randomly generated if undefined
+		last: undefined,	// RGB of the first block, randomly generated if undefined
+		size: 'normal'		// block size, possible value: ['small','normal','large']
 	}
 	var settings = $.extend({},defaults,options),
 		blocksArr = [],
@@ -20,7 +21,7 @@ var level = function(options) {
 
 	methods = {
 		
-		// 
+		// Initialize this level
 		init: function() {
 			
 			blocksArr = generateGradientBlocks(settings.number, settings.first, settings.last);
@@ -67,7 +68,9 @@ var level = function(options) {
 
 		display: function() {
 
-			
+			// Set block size
+			$('#wrapper').addClass(settings.size);
+			// lay all the blocks and block containers
 			blocksArr.map(function(el, index) {
 
 				// List all the blocks in waiting queue
@@ -90,19 +93,18 @@ var level = function(options) {
 
 			var $containerOfBlockToMove = $blockToMove.parent('.block-container');
 
-			// append the focused block
-			$container.append($blockToMove).removeClass('empty');
-			$containerOfBlockToMove.removeClass('focus');
-
 			// switch two blocks if this container is occupied!
 			if($block!=undefined && $block!=null) {
 			 	$containerOfBlockToMove.append($block);
 			}
 			else {
-
 				// else, mark the empty container
 				$containerOfBlockToMove.addClass('empty');
 			}
+			
+			// append the focused block
+			$container.append($blockToMove).removeClass('empty');
+			$containerOfBlockToMove.removeClass('focus');
 			
 			// clear block to move
 			$blockToMove = null;
@@ -231,6 +233,7 @@ function shuffle(array) {
 
 $(document).ready(function(){
 	level({
-		number: 10
+		number: 10,
+		size: 'normal'
 	});
 })
