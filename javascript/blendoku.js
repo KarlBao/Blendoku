@@ -107,6 +107,8 @@ var level = function(options) {
 				$('.result-queue .blocks').append($('<li class="block-container empty"></li>'))
 			})
 
+			
+
 		},
 		
 		focus: function() {
@@ -191,7 +193,7 @@ function generateGradientBlocks(totalBlocks,firstColor,lastColor) {
 	lastColor = lastColor || generateRandomColor();
 	var firstRGB = firstColor.split(','),
 		lastRGB = lastColor.split(','),
-		stepRGB = [],
+		stepRGB = [],	// array
 		generateRGBFloat = firstRGB,
 		generateRGBInt = [],
 		generateColor = '',
@@ -234,12 +236,10 @@ function generateGradientBlocks(totalBlocks,firstColor,lastColor) {
 }
 
 /**
- * Shuffle and return a random array
+ * Shuffle this array and return a random array
  **/
 function shuffle(array) {
-  var currentIndex = array.length,
-	  temporaryValue, 
-	  randomIndex;
+  var currentIndex = array.length, temporaryValue, randomIndex;
 
   // While there remain elements to shuffle...
   while (0 !== currentIndex) {
