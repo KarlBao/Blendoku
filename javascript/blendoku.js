@@ -28,9 +28,28 @@ var level = function(options) {
 
 			// setup the level
 			methods.setup();
+
+			// bind all events
+			$(window).load(function(){
+				methods.bindEvents();
+			})
+		},
+
+		setup: function() {
+
+			// bind each block width the order id
+			blocksArr.map(function(el, index){
+				el.data('id',index+1);
+			});
+			shuffle(blocksArr);
+			methods.display();
+		},
+
+		bindEvents: function() {
+			/** Click Events **/
+			// when block is clicked
 			$('.block-container').on('click','.block',function(event) {
 				var $container = $(event.delegateTarget),
-					$temp,
 					$this = $(this);
 
 				// stop propagation if has inner block
@@ -43,27 +62,34 @@ var level = function(options) {
 				}
 				else {
 					// switch two blocks
-					methods.switchBlock($container,$this);
+					methods.switchBlock($container);
 
 				}
-			})
+			}).on('click',function(event) { // when block container is clicked
 
-			// if no inner block
-			$('.block-container').on('click',function(event) {
-				if($blockToMove != null) {
+				// if no inner block
+				if($blockToMove != null && $(this).hasClass('empty')) {
 					methods.switchBlock($(this));
 				}
-			})
-		},
-
-		setup: function() {
-
-			// bind each block width the order id
-			blocksArr.map(function(el, index){
-				el.data('id',index+1);
 			});
-			shuffle(blocksArr);
-			methods.display();
+
+			/** Drag Events **/
+			$('.block-container').on('dragstart','.block',function(event){
+				
+				// set block when drag start
+				$blockToMove = $(this);
+			}).on('dragover',function(event){
+
+				event.preventDefault();
+			}).on('dragend',function(event){
+
+				$blockToMove = null;
+			}).on('drop',function(event){
+
+				var $container = $(this);
+
+				methods.switchBlock($container);
+			})
 		},
 
 		display: function() {
@@ -89,16 +115,17 @@ var level = function(options) {
 			
 		},
 
-		switchBlock: function($container, $block) {
+		switchBlock: function($container) {
 
-			var $containerOfBlockToMove = $blockToMove.parent('.block-container');
+			var $containerOfBlockToMove = $blockToMove.parent('.block-container'),
+				$block;
 
-			// switch two blocks if this container is occupied!
-			if($block!=undefined && $block!=null) {
+			if(!$container.hasClass('empty')) {	// switch two blocks if this container is not empty!
+				$block = $container.find('.block');
 			 	$containerOfBlockToMove.append($block);
 			}
-			else {
-				// else, mark the empty container
+			else {	// else, mark the empty container
+
 				$containerOfBlockToMove.addClass('empty');
 			}
 			
@@ -178,7 +205,7 @@ function generateGradientBlocks(totalBlocks,firstColor,lastColor) {
 			generateRGBInt[i] = Math.floor(generateRGBFloat[i]);
 		}	
 		generateColor = generateRGBInt.join(',');
-		blocksArr.push($('<div class="block" style="background-color:rgb('+generateColor+')"></div>'));
+		blocksArr.push($('<div class="block" draggable="true" style="background-color:rgb('+generateColor+')"></div>'));
 	}
 	function generateRandomColor() {
 		var randomRGB = [];
@@ -191,7 +218,7 @@ function generateGradientBlocks(totalBlocks,firstColor,lastColor) {
 	// Generate blocks if totalBlocks are larger than 2
 	if(totalBlocks>2) {	
 		//Generate first block
-		blocksArr.push($('<div class="block" style="background-color:rgb('+firstColor+')"></div>'));
+		blocksArr.push($('<div class="block" draggable="true" style="background-color:rgb('+firstColor+')"></div>'));
 		
 		for(var i = 0; i < 3; i++) {
 			//stepRGB[i] = (Math.floor(lastRGB[i]/(totalBlocks-1) - firstRGB[i]/(totalBlocks-1)));
@@ -202,7 +229,7 @@ function generateGradientBlocks(totalBlocks,firstColor,lastColor) {
 			generateBlock();
 		}
 		//Generate last block
-		blocksArr.push($('<div class="block" style="background-color:rgb('+lastColor+')"></div>'));
+		blocksArr.push($('<div class="block" draggable="true" style="background-color:rgb('+lastColor+')"></div>'));
 	}
 
 	return blocksArr;
