@@ -17,6 +17,7 @@ var level = function(options) {
 	var settings = $.extend({},defaults,options),
 		blocksArr = [],
 		$blockToMove = null,
+		animationEndEvent = 'animationend webkitAnimationEnd oAnimationEnd MSAnimationEnd';
 		methods = {};
 
 	methods = {
@@ -104,13 +105,31 @@ var level = function(options) {
 				$('.waiting-queue .blocks').append(el.parent('.block-container'));
 
 				// Generate empty block containers in result queue
-				$('.result-queue .blocks').append($('<li class="block-container empty"></li>'))
-			})
+				$('.result-queue .blocks').append($('<li class="block-container empty"></li>'));
 
-			
+			});
 
+			// Play animation
+			methods.animate($('.waiting-queue .block'));
 		},
 		
+		animate: function($blocks) {
+
+			$blocks.each(function(index, value) {
+
+				var $this = $(this);
+
+				setTimeout(function() {
+					$this.addClass('animated');
+
+					// remove after animation ends
+					$this.on(animationEndEvent,function(){
+						$this.removeClass('animated');
+					})
+				},200+50*index);
+			})
+		},
+
 		destory: function() {
 			$('.blocks .block-container').remove();
 		},
@@ -178,9 +197,9 @@ var level = function(options) {
 		},
 
 		complete: function() {
-			alert("COMPLETED");
-			methods.destory();
-			methods.init();		
+			methods.animate($('.result-queue .block'));
+			//methods.destory();
+			//methods.init();		
 		}
 	}
 
