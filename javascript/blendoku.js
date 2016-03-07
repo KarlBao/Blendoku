@@ -111,6 +111,10 @@ var level = function(options) {
 
 		},
 		
+		destory: function() {
+			$('.blocks .block-container').remove();
+		},
+
 		focus: function() {
 			
 		},
@@ -174,7 +178,9 @@ var level = function(options) {
 		},
 
 		complete: function() {
-			alert('COMPLETED!!');
+			alert("COMPLETED");
+			methods.destory();
+			methods.init();		
 		}
 	}
 
